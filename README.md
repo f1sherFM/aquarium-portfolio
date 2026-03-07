@@ -1,91 +1,49 @@
-# Aquarium Resume
+# Aquarium Portfolio
 
-Личный сайт-портфолио на Django в стиле aquarium / glassmorphism / deep blue tech.
+Персональный сайт-портфолио на Django с акцентом на backend-подачу, структурированный контент и визуальный стиль в эстетике aquarium / glassmorphism / deep blue.
+
+Проект объединяет несколько типов материалов в одном сайте: проекты, исследовательские работы, презентации, видео и отдельную страницу для работодателей. Контент поддерживает две локали (`ru` и `en`) и управляется через Django Admin.
+
+## Возможности
+
+- многостраничное портфолио на Django
+- поддержка русского и английского языков
+- управление контентом через Django Admin
+- отдельные разделы для проектов, исследований, презентаций и видео
+- страница для работодателей с краткой профессиональной подачей
+- кастомные страницы ошибок `404` и `500`
+- готовая конфигурация для деплоя на Render
+- раздача статики через WhiteNoise
+- поддержка SQLite локально и PostgreSQL в продакшне через `DATABASE_URL`
 
 ## Стек
 
-- Python
-- Django
-- WhiteNoise
+- Python 3
+- Django 5
 - SQLite
+- PostgreSQL
 - Django Templates
+- WhiteNoise
+- Gunicorn
+- dj-database-url
 - CSS
 
-## Структура
+## Структура проекта
 
 ```text
-aquarium-resume/
+aquarium-portfolio/
 ├─ config/
 ├─ core/
-│  ├─ static/css/style.css
+│  ├─ admin.py
+│  ├─ localization.py
+│  ├─ models.py
 │  ├─ templates/
+│  ├─ static/
 │  ├─ urls.py
 │  └─ views.py
 ├─ db.sqlite3
 ├─ manage.py
-└─ requirements.txt
-```
+├─ requirements.txt
+└─ render.yaml
 
-## Запуск
-
-1. Создать и активировать виртуальное окружение.
-2. Установить зависимости:
-
-```bash
-pip install -r requirements.txt
-```
-
-3. Создать `.env` на основе `.env.example`.
-
-4. Применить миграции:
-
-```bash
-python manage.py migrate
-```
-
-5. Запустить сервер:
-
-```bash
-python manage.py runserver
-```
-
-6. Открыть в браузере:
-
-```text
-http://127.0.0.1:8000/
-```
-
-## Маршруты
-
-- `/`
-- `/projects/`
-- `/research/`
-- `/presentations/`
-- `/youtube/`
-- `/employers/`
-
-## Переменные окружения
-
-## Render
-
-В проект добавлен [render.yaml](/home/nande/aquarium-resume/render.yaml) для деплоя на Render.
-
-Что важно:
-
-- build command ставит зависимости, применяет миграции и собирает статику
-- start command запускает `gunicorn`
-- статика обслуживается через WhiteNoise
-- для продакшна `SECRET_KEY` берётся из env, `DEBUG=False`
-
-Если будешь деплоить на домен вида `https://aquarium-resume.onrender.com`, добавь:
-
-```env
-ALLOWED_HOSTS=aquarium-resume.onrender.com
-CSRF_TRUSTED_ORIGINS=https://aquarium-resume.onrender.com
-```
-
-## Проверка
-
-```bash
-python manage.py check
-```
+###Данная версия README сделана как временный костыль и полность сгенерена ЛЛМ
