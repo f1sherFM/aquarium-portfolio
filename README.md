@@ -64,34 +64,7 @@ http://127.0.0.1:8000/
 - `/youtube/`
 - `/employers/`
 
-## Что заменить под себя
-
-- Ссылки `github.com/yourusername`
-- Ссылки `t.me/yourusername`
-- `kirill@example.com`
-- PDF и Google Slides ссылки в шаблонах
-- YouTube iframe на свой `video_id`
-- `SECRET_KEY`, `ALLOWED_HOSTS`, `CSRF_TRUSTED_ORIGINS` перед деплоем
-
 ## Переменные окружения
-
-Основные переменные:
-
-```env
-SECRET_KEY=change-me
-DEBUG=True
-ALLOWED_HOSTS=127.0.0.1,localhost
-CSRF_TRUSTED_ORIGINS=http://127.0.0.1:8000,http://localhost:8000
-DATABASE_URL=sqlite:///db.sqlite3
-```
-
-Для production:
-
-- `DEBUG=False`
-- `SECRET_KEY` только из env
-- `ALLOWED_HOSTS` должен содержать домен Render
-- `CSRF_TRUSTED_ORIGINS` должен содержать `https://<your-app>.onrender.com`
-- можно использовать Render PostgreSQL через `DATABASE_URL`
 
 ## Render
 
