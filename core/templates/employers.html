@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <p class="eyebrow">{{ page.eyebrow }}</p>
+    <h1>{{ page.heading }}</h1>
+    <p>{{ page.description }}</p>
+</section>
+
+<section class="grid grid-2">
+    <article class="card full-width employer-intro">
+        <div class="card-top">
+            <span class="tag">{{ page.intro.tag }}</span>
+            <span class="muted">{{ page.intro.meta }}</span>
+        </div>
+        <h3>{{ page.intro.title }}</h3>
+        <p>{{ page.intro.description }}</p>
+    </article>
+
+    <article class="card">
+        <h3>{{ page.stack_title }}</h3>
+        <ul class="clean-list">
+            {% for item in page.stack_items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </article>
+
+    <article class="card">
+        <h3>{{ page.skills_title }}</h3>
+        <ul class="clean-list">
+            {% for item in page.skills_items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </article>
+
+    <article class="card">
+        <h3>{{ page.approach_title }}</h3>
+        <ul class="clean-list">
+            {% for item in page.approach_items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </article>
+
+    <article class="card">
+        <h3>{{ page.why_title }}</h3>
+        <p>{{ page.why_description }}</p>
+    </article>
+
+    <article class="card full-width">
+        <div class="card-top">
+            <span class="tag">{{ page.contacts.tag }}</span>
+            <span class="muted">{{ page.contacts.meta }}</span>
+        </div>
+        <h3>{{ page.contacts.title }}</h3>
+        <div class="card-links">
+            <a href="{{ site.contact.github_url }}" target="_blank" rel="noopener noreferrer">{{ site.links.github }}</a>
+            <a href="{{ site.contact.telegram_url }}" target="_blank" rel="noopener noreferrer">{{ site.links.telegram }}</a>
+            <a href="mailto:{{ site.contact.email }}">{{ site.links.email }}</a>
+            <a href="{{ page.contacts.resume_url }}" target="_blank" rel="noopener noreferrer">{{ page.contacts.resume_label }}</a>
+        </div>
+    </article>
+</section>
+{% endblock %}

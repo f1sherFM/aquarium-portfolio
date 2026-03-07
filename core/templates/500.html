@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page.error_500.title }}{% endblock %}
+
+{% block content %}
+<section class="error-panel">
+    <div class="error-code">{{ page.error_500.code }}</div>
+    <p class="eyebrow">{{ page.error_500.eyebrow }}</p>
+    <h1>{{ page.error_500.heading }}</h1>
+    <p class="error-description">{{ page.error_500.description }}</p>
+
+    <div class="hero-buttons">
+        <a href="{% url 'home' %}" class="btn btn-primary">{{ site.error.back_home }}</a>
+        <a href="{% url 'projects' %}" class="btn btn-secondary">{{ site.error.to_projects }}</a>
+    </div>
+</section>
+{% endblock %}

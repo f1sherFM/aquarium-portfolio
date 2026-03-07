@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: aquarium-resume
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate"
+    startCommand: "gunicorn config.wsgi:application"
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALLOWED_HOSTS
+        value: "aquarium-resume.onrender.com"
+      - key: CSRF_TRUSTED_ORIGINS
+        value: "https://aquarium-resume.onrender.com"

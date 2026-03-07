@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-text">
+        <p class="eyebrow">{{ page.eyebrow }}</p>
+        <h1>{{ page.heading }}</h1>
+        <p class="hero-description">{{ page.description }}</p>
+
+        <div class="hero-buttons">
+            <a href="{% url 'projects' %}" class="btn btn-primary">{{ page.buttons.projects }}</a>
+            <a href="{% url 'employers' %}" class="btn btn-secondary">{{ page.buttons.employers }}</a>
+        </div>
+    </div>
+
+    <div class="hero-card">
+        <p class="eyebrow">{{ page.focus_eyebrow }}</p>
+        <h3>{{ page.focus_heading }}</h3>
+        <ul class="clean-list">
+            {% for item in page.focus_items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<section class="grid grid-3 metrics">
+    {% for metric in page.metrics %}
+        <article class="card metric-card">
+            <span class="metric-value">{{ metric.value }}</span>
+            <p class="metric-label">{{ metric.label }}</p>
+        </article>
+    {% endfor %}
+</section>
+
+<section class="section">
+    <div class="section-header">
+        <p class="eyebrow">{{ page.section.eyebrow }}</p>
+        <h2>{{ page.section.heading }}</h2>
+        <p>{{ page.section.description }}</p>
+    </div>
+
+    <div class="grid grid-3">
+        {% for card in page.cards %}
+            <article class="card">
+                <span class="tag">{{ card.tag }}</span>
+                <h3>{{ card.title }}</h3>
+                <p>{{ card.description }}</p>
+                <div class="card-links">
+                    <a href="{% url card.link_url_name %}">{{ card.link_label }}</a>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

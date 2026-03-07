@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ page.title|default:"Portfolio" }}{% endblock %}</title>
+    <meta name="description" content="Backend portfolio with projects, research, presentations, and employer-facing materials.">
+    <link rel="icon" type="image/svg+xml" href="{% static 'icons/favicon.svg' %}">
+    <link rel="apple-touch-icon" href="{% static 'icons/favicon.svg' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="page-bg" aria-hidden="true">
+        <div class="ambient ambient-1"></div>
+        <div class="ambient ambient-2"></div>
+        <div class="ambient ambient-3"></div>
+        <div class="grid-glow"></div>
+    </div>
+
+    <div class="site-shell">
+        <header class="site-header">
+            <div class="container header-inner">
+                <a href="{% url 'home' %}" class="logo" aria-label="{{ site.nav.home }}">
+                    <span class="logo-mark"></span>
+                    <span class="logo-text">
+                        <strong>{{ site.brand_name }}</strong>
+                        <span>{{ site.brand_role }}</span>
+                    </span>
+                </a>
+
+                <div class="header-actions">
+                    <nav class="nav" aria-label="Primary navigation">
+                        <a href="{% url 'home' %}">{{ site.nav.home }}</a>
+                        <a href="{% url 'projects' %}">{{ site.nav.projects }}</a>
+                        <a href="{% url 'research' %}">{{ site.nav.research }}</a>
+                        <a href="{% url 'presentations' %}">{{ site.nav.presentations }}</a>
+                        <a href="{% url 'youtube' %}">{{ site.nav.youtube }}</a>
+                        <a href="{% url 'employers' %}">{{ site.nav.employers }}</a>
+                    </nav>
+
+                    <div class="language-switcher" aria-label="{{ site.language_label }}">
+                        {% for language_code in supported_languages %}
+                            <form method="post" action="{% url 'set_language' language_code %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ request.get_full_path }}">
+                                <button type="submit" class="lang-btn{% if lang == language_code %} is-active{% endif %}">
+                                    {{ language_code|upper }}
+                                </button>
+                            </form>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="container page-content">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="site-footer">
+            <div class="container footer-inner">
+                <div class="footer-copy">
+                    <p>{{ site.footer_name }}</p>
+                    <span>{{ site.footer_role }}</span>
+                </div>
+
+                <div class="footer-links">
+                    <a href="{{ site.contact.github_url }}" target="_blank" rel="noopener noreferrer">{{ site.links.github }}</a>
+                    <a href="{{ site.contact.telegram_url }}" target="_blank" rel="noopener noreferrer">{{ site.links.telegram }}</a>
+                    <a href="mailto:{{ site.contact.email }}">{{ site.links.email }}</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <p class="eyebrow">{{ page.eyebrow }}</p>
+    <h1>{{ page.heading }}</h1>
+    <p>{{ page.description }}</p>
+</section>
+
+<section class="grid grid-1">
+    {% for item in page.videos %}
+        <article class="card video-card">
+            <div class="card-top">
+                <span class="tag">{{ item.tag }}</span>
+                <span class="muted">{{ item.meta }}</span>
+            </div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+
+            <div class="video-wrapper">
+                <iframe
+                    src="{{ item.embed_url }}"
+                    title="{{ item.title_attr }}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            {% if item.links %}
+                <div class="card-links">
+                    {% for link in item.links %}
+                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </article>
+    {% endfor %}
+
+    <article class="card">
+        <div class="card-top">
+            <span class="tag">{{ page.why.tag }}</span>
+            <span class="muted">{{ page.why.meta }}</span>
+        </div>
+        <h3>{{ page.why.title }}</h3>
+        <p>{{ page.why.description }}</p>
+    </article>
+</section>
+{% endblock %}

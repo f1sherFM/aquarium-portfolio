@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+<section class="page-head">
+    <p class="eyebrow">{{ page.eyebrow }}</p>
+    <h1>{{ page.heading }}</h1>
+    <p>{{ page.description }}</p>
+</section>
+
+<section class="grid grid-2">
+    {% for item in page.items %}
+        <article class="card">
+            <div class="card-top">
+                <span class="tag">{{ item.tag }}</span>
+                <span class="muted">{{ item.meta }}</span>
+            </div>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.description }}</p>
+            <div class="card-links">
+                {% for link in item.links %}
+                    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+                {% endfor %}
+            </div>
+        </article>
+    {% endfor %}
+</section>
+{% endblock %}
