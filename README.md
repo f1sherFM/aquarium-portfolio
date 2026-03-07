@@ -45,5 +45,5 @@ aquarium-portfolio/
 ├─ manage.py
 ├─ requirements.txt
 └─ render.yaml
-
+```
 ###Данная версия README сделана как временный костыль и полность сгенерена ЛЛМ
