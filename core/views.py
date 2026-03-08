@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 
 from .localization import DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES, build_site_context
-from .models import Presentation, Project, ResearchWork, Video
+from .models import Project
 
 
 def render_page(request: HttpRequest, template_name: str, page_key: str, status: int = 200) -> HttpResponse:
@@ -23,33 +23,50 @@ def projects(request: HttpRequest) -> HttpResponse:
     context = build_site_context(request, "projects")
     items = load_published_items(Project, context["lang"])
     if items:
-        context["page"]["items"] = items
+        context["page"]["items"] = items[:1]
+    else:
+        context["page"]["items"] = context["page"]["items"][:1]
     return render(request, "projects.html", context)
 
 
 def research(request: HttpRequest) -> HttpResponse:
     context = build_site_context(request, "research")
-    items = load_published_items(ResearchWork, context["lang"])
-    if items:
-        context["page"]["items"] = items
+    context["page"]["items"] = []
     return render(request, "research.html", context)
 
 
 def presentations(request: HttpRequest) -> HttpResponse:
     context = build_site_context(request, "presentations")
-    items = load_published_items(Presentation, context["lang"])
-    if items:
-        context["page"]["items"] = items
+    if context["lang"] == "en":
+        context["page"]["items"] = [
+            {
+                "tag": "Presentation",
+                "meta": "AI / Intro",
+                "title": "Artificial intelligence: complex ideas made simple",
+                "description": "A presentation that explains artificial intelligence in a simple and accessible way.",
+                "links": [
+                    {"label": "PPTX", "url": "/static/files/ai-explained-simple.pptx"},
+                ],
+            }
+        ]
+    else:
+        context["page"]["items"] = [
+            {
+                "tag": "Презентация",
+                "meta": "AI / Intro",
+                "title": "Искусственный интеллект: просто о сложном",
+                "description": "Презентация, в которой искусственный интеллект объясняется простым и понятным языком.",
+                "links": [
+                    {"label": "PPTX", "url": "/static/files/ai-explained-simple.pptx"},
+                ],
+            }
+        ]
     return render(request, "presentations.html", context)
 
 
 def youtube(request: HttpRequest) -> HttpResponse:
     context = build_site_context(request, "youtube")
-    items = load_published_items(Video, context["lang"])
-    if items:
-        context["page"]["videos"] = items
-    else:
-        context["page"]["videos"] = [context["page"]["video"]]
+    context["page"]["videos"] = []
     return render(request, "youtube.html", context)
 
 

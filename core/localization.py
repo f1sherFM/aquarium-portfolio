@@ -24,16 +24,16 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                 "employers": "Работодателям",
             },
             "footer_name": "Кирилл",
-            "footer_role": "Junior Backend Developer · Python, Django, FastAPI",
+            "footer_role": "Junior Backend Developer · Python, Django, Flask, FastAPI",
             "links": {
                 "github": "GitHub",
                 "telegram": "Telegram",
                 "email": "Email",
             },
             "contact": {
-                "github_url": "https://github.com/yourusername",
-                "telegram_url": "https://t.me/yourusername",
-                "email": "kirill@example.com",
+                "github_url": "https://github.com/f1sherFM",
+                "telegram_url": "https://t.me/f1sherFM",
+                "email": "c.balukov@yandex.ru",
             },
             "error": {
                 "back_home": "На главную",
@@ -44,7 +44,7 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
             "home": {
                 "title": "Главная | Портфолио",
                 "eyebrow": "Junior Backend Developer",
-                "heading": "Кирилл. Python, Django, FastAPI.",
+                "heading": "Кирилл. Python, Django, Flask, FastAPI.",
                 "description": "Собираю аккуратные backend-проекты, изучаю архитектуру приложений и оформляю технические материалы так, чтобы их было удобно читать и обсуждать. Этот сайт объединяет код, исследования, презентации и публичные объяснения.",
                 "buttons": {
                     "projects": "Проекты",
@@ -53,15 +53,19 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                 "focus_eyebrow": "Focus",
                 "focus_heading": "Текущий стек и интересы",
                 "focus_items": [
-                    "Python, Django, FastAPI",
-                    "REST API и backend-логика",
-                    "Структура проектов и качество кода",
+                    "Python, Django, Flask, FastAPI",
+                    "REST API, backend-логика и тестирование с pytest",
+                    "Структура проектов, качество кода и DevOps-практики",
+                    "Docker, Docker Compose и CI/CD",
                     "Аналитические и учебные материалы",
                 ],
                 "metrics": [
                     {"value": "6", "label": "Разделов сайта"},
-                    {"value": "3", "label": "Ключевых технологии"},
+                    {"value": "4", "label": "Ключевых технологии"},
                     {"value": "1", "label": "Точка входа для работодателя"},
+                    {"value": "1", "label": "Проектов"},
+                    {"value": "0", "label": "Работ"},
+                    {"value": "1", "label": "Презентаций / видео"},
                 ],
                 "section": {
                     "eyebrow": "Navigation",
@@ -122,11 +126,11 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                     {
                         "tag": "Backend",
                         "meta": "Python / FastAPI / APIs",
-                        "title": "AirTrace",
+                        "title": "AirTrace RU",
                         "description": "Сервис анализа качества воздуха с запросами к внешним API, обработкой ошибок, валидацией входных данных и продуманной backend-логикой для выдачи итоговой информации пользователю.",
                         "links": [
-                            {"label": "GitHub", "url": "https://github.com/yourusername/airtrace"},
-                            {"label": "Подробнее", "url": "https://github.com/yourusername/airtrace#readme"},
+                            {"label": "GitHub", "url": "https://github.com/f1sherFM/Airtrace-RU"},
+                            {"label": "Подробнее", "url": "https://github.com/f1sherFM/Airtrace-RU/blob/main/README.md"},
                         ],
                     },
                     {
@@ -135,8 +139,8 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                         "title": "Personal Portfolio",
                         "description": "Личный сайт-портфолио на Django с отдельными разделами под проекты, исследования, презентации, YouTube-материалы и деловую страницу для работодателей.",
                         "links": [
-                            {"label": "GitHub", "url": "https://github.com/yourusername/aquarium-resume"},
-                            {"label": "Подробнее", "url": "https://github.com/yourusername/aquarium-resume#readme"},
+                            {"label": "GitHub", "url": "https://github.com/f1sherFM/aquarium-resume"},
+                            {"label": "Подробнее", "url": "https://github.com/f1sherFM/aquarium-resume#readme"},
                         ],
                     },
                     {
@@ -145,8 +149,8 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                         "title": "Study Assistant",
                         "description": "Набор утилит для учебных задач: заметки, структурирование материалов, мелкая автоматизация и упрощение повседневной работы с информацией.",
                         "links": [
-                            {"label": "GitHub", "url": "https://github.com/yourusername/study-assistant"},
-                            {"label": "Подробнее", "url": "https://github.com/yourusername/study-assistant#readme"},
+                            {"label": "GitHub", "url": "https://github.com/f1sherFM/study-assistant"},
+                            {"label": "Подробнее", "url": "https://github.com/f1sherFM/study-assistant#readme"},
                         ],
                     },
                     {
@@ -155,8 +159,8 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                         "title": "Research Archive",
                         "description": "Архив аналитических материалов с удобной структурой, карточками описаний и подготовкой данных для публикации в формате, понятном и преподавателю, и работодателю.",
                         "links": [
-                            {"label": "GitHub", "url": "https://github.com/yourusername/research-archive"},
-                            {"label": "Подробнее", "url": "https://github.com/yourusername/research-archive#readme"},
+                            {"label": "GitHub", "url": "https://github.com/f1sherFM/research-archive"},
+                            {"label": "Подробнее", "url": "https://github.com/f1sherFM/research-archive#readme"},
                         ],
                     },
                 ],
@@ -286,17 +290,18 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                     "tag": "Profile",
                     "meta": "Junior Backend Developer",
                     "title": "Кто я",
-                    "description": "Я Junior Backend Developer. Работаю с Python, Django и FastAPI, интересуюсь архитектурой приложений, качеством кода, структурой backend-части и аккуратной подачей технических материалов.",
+                    "description": "Я Junior Backend-разработчик. Работаю с Python, Django, Flask и FastAPI. Интересуюсь архитектурой приложений, качеством кода, тестированием и аккуратной организацией backend-логики.",
                 },
                 "stack_title": "Мой стек",
-                "stack_items": ["Python", "Django", "FastAPI", "SQLite / PostgreSQL", "Git", "HTML / CSS"],
+                "stack_items": ["Python", "Django", "Flask", "FastAPI", "Docker", "Docker Compose", "CI/CD", "SQLite / PostgreSQL", "Git", "HTML / CSS"],
                 "skills_title": "Что умею",
                 "skills_items": [
                     "Разработка backend-логики",
                     "Проектирование API",
                     "Работа с базами данных",
-                    "Структурирование и анализ информации",
-                    "Подготовка технических и аналитических материалов",
+                    "Работа с Docker, Docker Compose и CI/CD",
+                    "Структурирование технической информации",
+                    "Понятная подача технической информации",
                 ],
                 "approach_title": "Подход к работе",
                 "approach_items": [
@@ -305,13 +310,13 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                     "Ценю ясную структуру, дисциплину и аккуратную реализацию",
                 ],
                 "why_title": "Почему этот сайт полезен работодателю",
-                "why_description": "Здесь собраны не только проекты, но и презентации, аналитические материалы и видео. Это помогает увидеть не только стек, но и способ мышления, качество подачи и ширину интересов.",
+                "why_description": "Здесь собраны не только проекты, но и презентации, аналитические материалы и видео. Это помогает увидеть не только мой стек, но и то, как я думаю, как структурирую информацию и как подаю технический материал.",
                 "contacts": {
                     "tag": "Contacts",
                     "meta": "Open to communication",
                     "title": "Контакты",
                     "resume_label": "Резюме PDF",
-                    "resume_url": "https://example.com/resume/kirill-resume.pdf",
+                    "resume_url": "/static/files/kirill-resume.pdf",
                 },
             },
             "errors": {
@@ -347,16 +352,16 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                 "employers": "For Employers",
             },
             "footer_name": "Kirill",
-            "footer_role": "Junior Backend Developer · Python, Django, FastAPI",
+            "footer_role": "Junior Backend Developer · Python, Django, Flask, FastAPI",
             "links": {
                 "github": "GitHub",
                 "telegram": "Telegram",
                 "email": "Email",
             },
             "contact": {
-                "github_url": "https://github.com/yourusername",
-                "telegram_url": "https://t.me/yourusername",
-                "email": "kirill@example.com",
+                "github_url": "https://github.com/f1sherFM",
+                "telegram_url": "https://t.me/f1sherFM",
+                "email": "c.balukov@yandex.ru",
             },
             "error": {
                 "back_home": "Back Home",
@@ -367,7 +372,7 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
             "home": {
                 "title": "Home | Portfolio",
                 "eyebrow": "Junior Backend Developer",
-                "heading": "Kirill. Python, Django, FastAPI.",
+                "heading": "Kirill. Python, Django, Flask, FastAPI.",
                 "description": "I build clean backend projects, study application architecture, and package technical materials so they are easy to read and discuss. This site brings together code, research, presentations, and public explainers.",
                 "buttons": {
                     "projects": "Projects",
@@ -376,15 +381,19 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                 "focus_eyebrow": "Focus",
                 "focus_heading": "Current stack and interests",
                 "focus_items": [
-                    "Python, Django, FastAPI",
-                    "REST APIs and backend logic",
-                    "Project structure and code quality",
+                    "Python, Django, Flask, FastAPI",
+                    "REST APIs, backend logic, and testing with pytest",
+                    "Project structure, code quality, and DevOps practices",
+                    "Docker, Docker Compose, and CI/CD",
                     "Analytical and educational materials",
                 ],
                 "metrics": [
                     {"value": "6", "label": "Site sections"},
-                    {"value": "3", "label": "Core technologies"},
+                    {"value": "4", "label": "Core technologies"},
                     {"value": "1", "label": "Employer entry point"},
+                    {"value": "1", "label": "Projects"},
+                    {"value": "0", "label": "Research items"},
+                    {"value": "1", "label": "Presentations / video"},
                 ],
                 "section": {
                     "eyebrow": "Navigation",
@@ -445,11 +454,11 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                     {
                         "tag": "Backend",
                         "meta": "Python / FastAPI / APIs",
-                        "title": "AirTrace",
+                        "title": "AirTrace RU",
                         "description": "An air quality analytics service with external API requests, error handling, input validation, and solid backend logic for user-facing results.",
                         "links": [
-                            {"label": "GitHub", "url": "https://github.com/yourusername/airtrace"},
-                            {"label": "Read more", "url": "https://github.com/yourusername/airtrace#readme"},
+                            {"label": "GitHub", "url": "https://github.com/f1sherFM/Airtrace-RU"},
+                            {"label": "Read more", "url": "https://github.com/f1sherFM/Airtrace-RU/blob/main/README.md"},
                         ],
                     },
                     {
@@ -458,8 +467,8 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                         "title": "Personal Portfolio",
                         "description": "A Django portfolio site with separate sections for projects, research, presentations, YouTube materials, and an employer-facing page.",
                         "links": [
-                            {"label": "GitHub", "url": "https://github.com/yourusername/aquarium-resume"},
-                            {"label": "Read more", "url": "https://github.com/yourusername/aquarium-resume#readme"},
+                            {"label": "GitHub", "url": "https://github.com/f1sherFM/aquarium-resume"},
+                            {"label": "Read more", "url": "https://github.com/f1sherFM/aquarium-resume#readme"},
                         ],
                     },
                     {
@@ -468,8 +477,8 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                         "title": "Study Assistant",
                         "description": "A set of utilities for study workflows: notes, material organization, small automation, and day-to-day information handling.",
                         "links": [
-                            {"label": "GitHub", "url": "https://github.com/yourusername/study-assistant"},
-                            {"label": "Read more", "url": "https://github.com/yourusername/study-assistant#readme"},
+                            {"label": "GitHub", "url": "https://github.com/f1sherFM/study-assistant"},
+                            {"label": "Read more", "url": "https://github.com/f1sherFM/study-assistant#readme"},
                         ],
                     },
                     {
@@ -478,8 +487,8 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                         "title": "Research Archive",
                         "description": "An archive of analytical materials with a clean structure, descriptive cards, and data prepared for clear publication.",
                         "links": [
-                            {"label": "GitHub", "url": "https://github.com/yourusername/research-archive"},
-                            {"label": "Read more", "url": "https://github.com/yourusername/research-archive#readme"},
+                            {"label": "GitHub", "url": "https://github.com/f1sherFM/research-archive"},
+                            {"label": "Read more", "url": "https://github.com/f1sherFM/research-archive#readme"},
                         ],
                     },
                 ],
@@ -609,17 +618,18 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                     "tag": "Profile",
                     "meta": "Junior Backend Developer",
                     "title": "Who I am",
-                    "description": "I am a Junior Backend Developer. I work with Python, Django, and FastAPI, and I am interested in application architecture, code quality, backend structure, and clear technical communication.",
+                    "description": "I am a Junior Backend Developer. I work with Python, Django, Flask, and FastAPI. I am interested in application architecture, code quality, testing, and clean backend organization.",
                 },
                 "stack_title": "My stack",
-                "stack_items": ["Python", "Django", "FastAPI", "SQLite / PostgreSQL", "Git", "HTML / CSS"],
+                "stack_items": ["Python", "Django", "Flask", "FastAPI", "Docker", "Docker Compose", "CI/CD", "SQLite / PostgreSQL", "Git", "HTML / CSS"],
                 "skills_title": "What I can do",
                 "skills_items": [
                     "Backend logic development",
                     "API design",
                     "Database work",
-                    "Information structuring and analysis",
-                    "Technical and analytical writing",
+                    "Working with Docker, Docker Compose, and CI/CD",
+                    "Structuring technical information",
+                    "Clear presentation of technical information",
                 ],
                 "approach_title": "How I work",
                 "approach_items": [
@@ -628,13 +638,13 @@ BASE_TRANSLATIONS: dict[str, dict[str, Any]] = {
                     "I value clear structure, discipline, and careful implementation",
                 ],
                 "why_title": "Why this site is useful for employers",
-                "why_description": "This site includes not only projects, but also presentations, analytical materials, and video. It helps reveal not just the stack, but also the way I think, communicate, and learn.",
+                "why_description": "This site includes not only projects, but also presentations, analytical materials, and video. It helps show not only my stack, but also how I think, how I structure information, and how I present technical material.",
                 "contacts": {
                     "tag": "Contacts",
                     "meta": "Open to communication",
                     "title": "Contacts",
                     "resume_label": "Resume PDF",
-                    "resume_url": "https://example.com/resume/kirill-resume.pdf",
+                    "resume_url": "/static/files/kirill-resume.pdf",
                 },
             },
             "errors": {

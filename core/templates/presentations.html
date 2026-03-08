@@ -10,20 +10,27 @@
 </section>
 
 <section class="grid grid-2">
-    {% for item in page.items %}
-        <article class="card">
-            <div class="card-top">
-                <span class="tag">{{ item.tag }}</span>
-                <span class="muted">{{ item.meta }}</span>
-            </div>
-            <h3>{{ item.title }}</h3>
-            <p>{{ item.description }}</p>
-            <div class="card-links">
-                {% for link in item.links %}
-                    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
-                {% endfor %}
-            </div>
+    {% if page.items %}
+        {% for item in page.items %}
+            <article class="card">
+                <div class="card-top">
+                    <span class="tag">{{ item.tag }}</span>
+                    <span class="muted">{{ item.meta }}</span>
+                </div>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.description }}</p>
+                <div class="card-links">
+                    {% for link in item.links %}
+                        <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }}</a>
+                    {% endfor %}
+                </div>
+            </article>
+        {% endfor %}
+    {% else %}
+        <article class="card full-width">
+            <h3>{% if lang == "ru" %}Раздел пока пуст{% else %}Section is empty for now{% endif %}</h3>
+            <p>{% if lang == "ru" %}Презентации будут добавлены позже.{% else %}Presentations will be added later.{% endif %}</p>
         </article>
-    {% endfor %}
+    {% endif %}
 </section>
 {% endblock %}
