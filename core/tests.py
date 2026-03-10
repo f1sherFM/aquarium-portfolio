@@ -21,6 +21,7 @@ class PortfolioViewsTests(TestCase):
         self.assertContains(response, "Kirill")
         self.assertContains(response, "/projects/")
         self.assertContains(response, "/employers/")
+        self.assertContains(response, ">7<")
 
     def test_language_switch_changes_session_and_content(self) -> None:
         response = self.client.post(
@@ -34,16 +35,25 @@ class PortfolioViewsTests(TestCase):
         self.assertContains(response, "Information for employers")
         self.assertContains(response, "Resume PDF")
 
-    def test_projects_page_shows_only_airtrace_ru(self) -> None:
+    def test_projects_page_shows_all_current_projects(self) -> None:
         self.set_language("en")
         response = self.client.get(reverse("projects"))
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, "AirTrace RU")
+        self.assertContains(response, "Habit Tracker")
+        self.assertContains(response, "Bookstore API Course")
+        self.assertContains(response, "Fishertools")
+        self.assertContains(response, "Aquarium Portfolio")
+        self.assertContains(response, "Knowledge Base")
+        self.assertContains(response, "Skill Blog")
         self.assertContains(response, "https://github.com/f1sherFM/Airtrace-RU")
-        self.assertNotContains(response, "Personal Portfolio")
-        self.assertNotContains(response, "Study Assistant")
-        self.assertNotContains(response, "Research Archive")
+        self.assertContains(response, "https://github.com/f1sherFM/Habit-Tracker")
+        self.assertContains(response, "https://github.com/f1sherFM/bookstore-api-course")
+        self.assertContains(response, "https://github.com/f1sherFM/Fishertools")
+        self.assertContains(response, "https://github.com/f1sherFM/aquarium-portfolio")
+        self.assertContains(response, "https://github.com/f1sherFM/knowledge_base")
+        self.assertContains(response, "https://github.com/f1sherFM/skill-blog-api")
 
     def test_presentations_page_shows_uploaded_presentation(self) -> None:
         self.set_language("en")

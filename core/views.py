@@ -23,9 +23,7 @@ def projects(request: HttpRequest) -> HttpResponse:
     context = build_site_context(request, "projects")
     items = load_published_items(Project, context["lang"])
     if items:
-        context["page"]["items"] = items[:1]
-    else:
-        context["page"]["items"] = context["page"]["items"][:1]
+        context["page"]["items"] = items
     return render(request, "projects.html", context)
 
 
